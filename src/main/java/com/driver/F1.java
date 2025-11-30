@@ -4,7 +4,7 @@ public class F1 extends Car {
 
     public F1(String name, boolean isManual) {
         //Use arbitrary values for parameters which are not mentioned
-        super(name,4,1,6,true,"Fast-and-Furious",1);
+        super(name,4,1,6,isManual,"Fast-and-Furious",1);
     }
 
     public void accelerate(int rate){
@@ -23,25 +23,18 @@ public class F1 extends Car {
             //Stop the car, set gear as 1
             stop();
             setGears(1);
+        }else if(newSpeed <=50){
+            changeGear(1);
+        }else if(newSpeed <=100){
+            changeGear(2);
+        }else if(newSpeed <=150){
+            changeGear(3);
+        }else if(newSpeed <=200){
+            changeGear(4);
+        }else if(newSpeed <= 250) {
+            changeGear(5);
         }else{
-            if(newSpeed>0 && newSpeed<=50){
-                setGears(1);
-            }
-            if(newSpeed<=100){
-                setGears(2);
-            }
-            if(newSpeed<=150){
-                setGears(3);
-            }
-            if(newSpeed<=200){
-                setGears(4);
-            }
-            if(newSpeed<=250){
-                setGears(5);
-            }
-            if(newSpeed>250){
-                setGears(6);
-            }
+            changeGear(6);
         }
         //for all other cases, change the gear accordingly
 
